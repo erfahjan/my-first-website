@@ -17,26 +17,46 @@
         }
 
         .container {
-            display: grid;
-            grid-template-columns: minmax(180px, 25%) 1fr;
             width: 100%;
             margin: 0 auto;
         }
 
         .header {
             width: 100%;
-            height: 100px;
+            min-height: 100px;
+            padding: 12px clamp(16px, 4vw, 48px);
             background-color: rgb(186, 97, 137);
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            gap: 24px;
         }
 
         .header img {
             display: block;
-            height: 100%;
-            width: 100%;
+            width: 150px;
+            height: 76px;
             object-fit: contain;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(12px, 3vw, 30px);
+        }
+
+        .main-nav a {
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus-visible {
+            text-decoration: underline;
         }
 
         .block5 {
@@ -150,7 +170,7 @@
 
         @media (max-width: 900px) {
             .container {
-                grid-template-columns: 1fr;
+                width: 100%;
             }
 
             .header,
@@ -164,6 +184,22 @@
         }
 
         @media (max-width: 600px) {
+            .header {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header img {
+                width: 130px;
+                height: 64px;
+            }
+
+            .main-nav {
+                width: 100%;
+                justify-content: center;
+                color: black;
+            }
+
             .block5 h2 {
                 font-size: 1.2rem;
             }
@@ -185,11 +221,14 @@
 
     <div class="container">
         <div class="header">
-          <p style="opacity:transparent;"> <img src="pngwing.com.png"></p>
+                        <img src="pngwing.com.png" alt="Website logo">
+                        <nav class="main-nav" aria-label="Main navigation">
+                                <a href="home.html">Home</a>
+                                <a href="order.html" aria-current="page">Order</a>
+                                <a href="menu.html">Menu</a>
+                        </nav>
         </div>
-        <div class="block5">
-            <h2>This is my Restaurant</h2>
-        </div>
+        
 
      
     </div>
@@ -280,4 +319,4 @@
         <p>🕐 Support Time: 10:00 AM - 10:00 PM</p>
     </div>
 </body>
-</html>>
+</html>
